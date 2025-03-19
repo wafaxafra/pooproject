@@ -1,27 +1,22 @@
 package controller;
 
-import model.Task;
-import model.TaskDAO;
+import model.User;
+import model.UserDAO;
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
 
-public class TaskController {
-    private TaskDAO taskDAO;
+public class UserController {
+    private UserDAO userDAO;
 
-    public TaskController() {
-        this.taskDAO = new TaskDAO();
+    public UserController() {
+        this.userDAO = new UserDAO();
     }
 
-    public void addTask(Task task) throws SQLException, IOException {
-        taskDAO.addTask(task);
+    public void addUser(User user) throws SQLException, IOException {
+        userDAO.addUser(user);
     }
 
-    public void deleteTask(int taskId) throws SQLException, IOException {
-        taskDAO.deleteTask(taskId);
-    }
-
-    public List<Task> getTasksByUser(int userId) throws SQLException, IOException {
-        return taskDAO.getTasksByUserId(userId);
+    public User getUserByUsername(String username) throws SQLException, IOException {
+        return userDAO.getUserByUsername(username);
     }
 }
